@@ -21,7 +21,7 @@ st.set_page_config(
 
 show_pages(
     [
-        Page("news.py", "News", "📰"),
+        Page("news.py", "Movies", "📰"),
         Page("pages/chatbot.py", "Personalized Chatbot ", "🤖"),
     ]
 )
@@ -29,7 +29,7 @@ show_pages(
 
 def setup():
     """Set up FirstBatch and Pinecone configurations."""
-    config = Config(batch_size=10, verbose=False, enable_history=True)
+    config = Config(batch_size=10, verbose=False, enable_history=False)
     personalized = FirstBatch(api_key=FIRST_BATCH_API_KEY, config=config)
     pinecone.init(api_key=PINECONE_API_KEY, environment=PINECONE_ENV)
     index = pinecone.Index(PINECONE_INDEX_NAME)
@@ -117,7 +117,7 @@ def display_sidebar():
 
 def display_liked_items():
     """Display the items liked by the user."""
-    st.sidebar.subheader("Liked Items")
+    st.sidebar.subheader("Liked Movies")
     for item in st.session_state.likes:
         st.sidebar.markdown(f"[{item.data['title']}]({item.data['link']})")
 
@@ -129,7 +129,7 @@ def signal(cid):
 
 def main():
     """Main function to render the app."""
-    st.title("News")
+    st.title("Movies")
     st.markdown(css_, unsafe_allow_html=True)
     with st.expander("**Explanation of Personalized AI Agent**", expanded=True):
         st.write("""*Embark on a bespoke chatbot journey with our Enhanced Personalized AI Agent, designed to deliver 
@@ -154,6 +154,7 @@ def main():
         spinner = st.spinner('Loading more contents...', )
         with spinner:
             ids, batch = st.session_state.personalized.batch(st.session_state.session)
+            print(batch)
             st.session_state.batches += batch
             st.session_state.ids += ids
             st.session_state.loading += 1

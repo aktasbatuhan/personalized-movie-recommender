@@ -1,9 +1,9 @@
 [theme]
 primaryColor = "#FF4B4B"
 backgroundColor = "#0E1117"
-secondaryBackgroundColor = "#1F1F1F"
+secondaryBackgroundColor = "#01001C"
 textColor = "#FFFFFF"
-font = "sans serif"
+font = "inter"
 
 [client]
 caching = true
