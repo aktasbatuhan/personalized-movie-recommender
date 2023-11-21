@@ -1,29 +1,17 @@
-# Personalized News Chatbot
+# Personalized Movie Recommender
 
 This repository builded top of the [Personalized Feed](https://github.com/andthattoo/personalized-rss-feed) repository. Frontend developed with [Streamlit](https://github.com/streamlit/streamlit), Recommendation engine developed with [Firstbatch](https://github.com/firstbatchxyz/firstbatch-sdk).
 
 # Features
 
 
-- **Adaptive Conversations**:  Our chatbot learns from your previous interactions and tailors the conversation accordingly.
-- **News Content Integration**: Engage with news content that you prefer. Like the content you want and the chatbot adapts!
+- **Adaptive Conversations**:  Our chatbot learns from your previous interactions with movies and tailors the conversation accordingly.
+- **News Content Integration**: Engage with movie content that you like, and the chatbot adapts!
 - **Modern Interface**: Dark-themed, sleek design ensures an enjoyable user experience.
 
 # How It Works
 
-## Personalization Levels:
-
-Level 1: The chatbot starts without prior knowledge. Conversations are general and exploratory.
-
-Level 2: As you interact, the chatbot aligns its responses closely with your expressed preferences.
-
-Level 3: With further interactions, the chatbot leverages both your explicit signals and contextually linked topics to diversify the conversation.
-
-Level 4: The chatbot takes brave leaps, introducing topics and directions that are related to your interests but offer fresh perspectives.
-
-Note: The chatbot is predominantly influenced by the last three significant interactions to ensure that the conversation remains dynamic and relevant.
-
-[FirstBatch Algorithm in Detail](https://firstbatch.gitbook.io/rss-feed-algorithm/)
+Once you interacted with any movie, chatbot will provide you personalized recommendations immediately while ensuring an exploration space for you to discover new tastes.
 
 [FirstBatch SDK Documentation](https://firstbatch.gitbook.io/firstbatch-sdk/get-started/introduction)
 
@@ -31,7 +19,7 @@ Note: The chatbot is predominantly influenced by the last three significant inte
 
 1. Clone the repository:
    ```bash
-   git clone git@github.com:anilaltuner/personalized-news-agent.git
+   git clone git@github.com:aktasbatuhan/personalized-movie-recommender.git
    ```
 
 2. Install the required libraries:
