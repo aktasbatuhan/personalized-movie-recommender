@@ -28,15 +28,15 @@ def setup_chat_with_memory():
     sk_prompt = """   
 Avoid using "Answer:" or "Chatbot>" as a response header. Responses should be concise, not exceeding 250 tokens.
 
-User preferences is user's interaction with the articles. Use the articles that the user has liked for tailored recommendations.
-Relevant Articles for Context and Suggestions is the articles which exctracted user has liked. Use the articles that the more exploration and alternative.
+User preferences is user's interaction with the movies. Use the movies that the user has liked for tailored recommendations.
+Relevant Movies for Context and Suggestions is the movies which exctracted user has liked. Use the movies that the more exploration and alternative.
 Prior Conversation Record is the previous chat history. This one is least important for user interests. Use that for engagement and continuity.
 Upcoming Chatbot Response will focus on is the strategy for the upcoming response. Use that for learn about user state on product experience.
 
 User Preferences:
 {user_interaction}
 
-Relevant Articles for Context and Suggestions:
+Relevant Movies for Context and Suggestions:
 {context}
 
 Prior Conversation Record:
@@ -59,16 +59,16 @@ Upcoming Chatbot Response will focus on:
 
 def generate_session_context(session):
     if len(session["likes"]) == 0:
-        return "User has no interaction", "User has no recommended articles"
+        return "User has no interaction", "User has no recommended movies"
     user_interaction = ""
     for doc in session["likes"]:
         user_interaction += (
-                "\nArticle text is: " + doc.data["text"] + " Link: " + doc.data["link"] + "\n"
+                "\nMovie text is: " + doc.data["text"] + " Link: " + doc.data["link"] + "\n"
         )
     context = ""
     for doc in session["batches"][:5]:
         context += (
-                "\nArticle text is: " + doc.data["text"] + " Link: " + doc.data["link"] + "\n"
+                "\nMovie text is: " + doc.data["text"] + " Link: " + doc.data["link"] + "\n"
         )
     return context, user_interaction
 
